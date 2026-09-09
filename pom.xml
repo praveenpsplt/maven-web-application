@@ -17,7 +17,7 @@
 	</organization>
 
 	<properties>
-		<jdk.version>8</jdk.version>
+		<jdk.version>21</jdk.version>
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -98,57 +98,65 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>MavenWebApplication-Snapshot</name>
-	      <url>http://18.61.89.107:8081/repository/MavenWebApplication-Snapshot//</url>
-	    </snapshotRepository>
-	    
-	</distributionManagement>
-	
-	<build>
-    <finalName>maven-web-application</finalName>
-
-    <plugins>
-
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.13.0</version>
-            <configuration>
-                <release>8</release>
-            </configuration>
-        </plugin>
-
-        <plugin>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>5.7.0.6970</version>
-        </plugin>
-
-        <plugin>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-maven-plugin</artifactId>
-            <version>9.2.11.v20150529</version>
-            <configuration>
-                <scanIntervalSeconds>10</scanIntervalSeconds>
-                <webApp>
-                    <contextPath>/maven-web-application</contextPath>
-                </webApp>
-            </configuration>
-        </plugin>
-
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-eclipse-plugin</artifactId>
-            <version>2.9</version>
-            <configuration>
-                <downloadSources>true</downloadSources>
-                <downloadJavadocs>true</downloadJavadocs>
-                <wtpversion>2.0</wtpversion>
-                <wtpContextName>maven-web-application</wtpContextName>
-            </configuration>
-        </plugin>
-
-    </plugins>
-</build>
-	
-	
-</project>
+	      <url>http://18.61.89.107:8081/repository/MavenWebApplication-Snapshot//</url> 
+	    </snapshotRepository> 
+	     
+	</distributionManagement> 
+	 
+	<build> 
+		<finalName>maven-web-application</finalName> 
+		 
+		<plugins> 
+			<plugin> 
+    <groupId>org.apache.maven.plugins</groupId> 
+    <artifactId>maven-compiler-plugin</artifactId> 
+    <version>3.13.0</version> 
+    <configuration> 
+        <source>8</source> 
+        <target>8</target> 
+    </configuration> 
+</plugin> 
+			<plugin> 
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-compiler-plugin</artifactId> 
+				<version>3.13.0</version> 
+				<configuration> 
+					<source>${jdk.version}</source> 
+					<target>${jdk.version}</target> 
+				</configuration> 
+			</plugin> 
+ 
+			<plugin> 
+    <groupId>org.sonarsource.scanner.maven</groupId> 
+    <artifactId>sonar-maven-plugin</artifactId> 
+    <version>5.7.0.6970</version> 
+</plugin> 
+			<plugin> 
+				<groupId>org.eclipse.jetty</groupId> 
+				<artifactId>jetty-maven-plugin</artifactId> 
+				<version>9.2.11.v20150529</version> 
+				<configuration> 
+					<scanIntervalSeconds>10</scanIntervalSeconds> 
+					<webApp> 
+						<contextPath>/maven-web-application</contextPath> 
+					</webApp> 
+				</configuration> 
+			</plugin> 
+ 
+			<plugin> 
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-eclipse-plugin</artifactId> 
+				<version>2.9</version> 
+				<configuration> 
+					<downloadSources>true</downloadSources> 
+					<downloadJavadocs>true</downloadJavadocs> 
+					<wtpversion>2.0</wtpversion> 
+					<wtpContextName>maven-web-application</wtpContextName> 
+				</configuration> 
+			</plugin> 
+			 
+</plugins> 
+	</build> 
+	 
+	 
+</project>  
